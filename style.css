@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7eb3, #65a9d7, #ffcc70);
+    background-size: 400% 400%;
+    animation: gradient 8s ease infinite;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  h1 {
+    color: #2c3e50;
+  }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-gap: 15px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .cell {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #8e44ad, #3498db);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.5s ease, box-shadow 0.5s ease;
+    border: 5px solid rgba(144, 238, 144, 0.5); /* Light green border */
+  }
+
+  .cell:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #e74c3c, #f39c12);
+    border: 5px solid #32cd32;
+  }
+
+  .win {
+    background: linear-gradient(135deg, #32cd32, #27ae60) !important;
+    animation: win-glow 2s infinite alternate;
+  }
+
+  @keyframes win-glow {
+    from {
+      box-shadow: 0 0 10px #32cd32, 0 0 20px #27ae60;
+    }
+    to {
+      box-shadow: 0 0 20px #32cd32, 0 0 30px #27ae60;
+    }
+  }
+
+  .scoreboard {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #34495e;
+  }
+
+  .restart-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .restart-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+  }
+
+  .winner-message {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 15px;
+  }
+
+  .crackers {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .crackers div {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #f39c12, #e74c3c);
+    border-radius: 50%;
+    animation: blast 1s ease-out infinite;
+  }
+
+  .cracker1 { top: -50px; left: -50px; }
+  .cracker2 { top: -50px; right: -50px; }
+  .cracker3 { bottom: -50px; left: -50px; }
+  .cracker4 { bottom: -50px; right: -50px; }
+
+  @keyframes blast {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+  }
